@@ -13,9 +13,10 @@ async function create(dog) {
     return getById(id)
 }
 
-function remove(id){
-    db('dogs').where('dog_id', id).del()
-    return getAll()
+async function remove(id){
+    const dog = await getById(id)
+    await db('dogs').where('dog_id', id).del()
+    return dog
 }
 
 module.exports = {

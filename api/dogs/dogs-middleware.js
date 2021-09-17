@@ -1,7 +1,7 @@
 const Dogs = require('./dogs-model');
 
 const checkRequestBody = (req, res, next) => {
-    if(!req.body.name || !req.body.age) {
+    if(!req.body.dog_name || !req.body.dog_age) {
         next({ status: 400, message: 'Be sure to have a dog name and age'});
     } else {
         next()
